@@ -1,0 +1,34 @@
+jenkins:
+  systemMessage: "Test Naxus\n\n"
+tool:
+  git:
+    installations:
+    - home: "git"
+      name: "Default"
+
+jobs:
+  - script: >
+      pipelineJob('pipeline') {
+          definition {
+              cpsScm {
+                  scriptPath 'Jenkinsfile'
+                  scm {
+                    git {
+                        remote { url 'https://github.globant.com/juanmarcos-benitez/CYF-blog-devops.git' }
+                        branch '*/master'
+                        extensions {}
+                    }
+                  }
+              }
+          }
+      }
+
+credentials:
+   system:
+     domainCredentials:
+       - credentials:
+           - usernamePassword:
+               scope:    GLOBAL
+               id:       github-user
+               username: juanmarcos-benitez
+               password: tomas07jmJM

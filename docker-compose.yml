@@ -1,0 +1,15 @@
+version: '3'
+services:
+  jenkins:
+    build:
+      context: .
+    ports:
+      - 8086:8080
+      - 50001:50000
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - ./jenkins.yaml:/var/jenkins_home/jenkins.yaml
+    environment:
+      - CASC_JENKINS_CONFIG=/usr/share/jenkins/ref/jenkins.yaml
+volumes:
+  jenkins_home:
