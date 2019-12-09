@@ -1,5 +1,11 @@
 jenkins:
   systemMessage: "Test Naxus\n\n"
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+       - id: admin
+         password: admin
 tool:
   git:
     installations:
@@ -14,7 +20,7 @@ jobs:
                   scriptPath 'Jenkinsfile'
                   scm {
                     git {
-                        remote { url 'https://github.globant.com/juanmarcos-benitez/CYF-blog-devops.git' }
+                        remote { url 'https://github.com/juanmatomas07/te.git' }
                         branch '*/master'
                         extensions {}
                     }
@@ -30,5 +36,5 @@ credentials:
            - usernamePassword:
                scope:    GLOBAL
                id:       github-user
-               username: juanmarcos-benitez
-               password: tomas07jmJM
+               username: juanmatomas07
+               password: 096436664jm
