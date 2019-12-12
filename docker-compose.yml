@@ -9,6 +9,7 @@ services:
     volumes:
       - jenkins_home:/var/jenkins_home
       - ./jenkins.yaml:/var/jenkins_home/jenkins.yaml
+      - /var/run/docker.sock:/var/run/docker.sock
     environment:
       - CASC_JENKINS_CONFIG=/usr/share/jenkins/ref/jenkins.yaml
 volumes:
